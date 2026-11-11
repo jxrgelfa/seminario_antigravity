@@ -34,21 +34,11 @@ export default function FilterBar({
                     className="bg-zinc-900 text-white border border-zinc-700 rounded px-3 py-1.5 text-sm focus:outline-none focus:border-blue-500 cursor-pointer"
                 >
                     <option value="">Todas las marcas</option>
-                    {marcas.length > 0 ? (
-                        marcas.map((m) => (
-                            <option key={m.id} value={m.id}>
-                                {m.nombre}
-                            </option>
-                        ))
-                    ) : (
-                        <>
-                            <option value="1">Nike</option>
-                            <option value="2">Adidas</option>
-                            <option value="3">New Balance</option>
-                            <option value="4">Puma</option>
-                            <option value="5">Converse</option>
-                        </>
-                    )}
+                    {marcas.map((m) => (
+                        <option key={m.id} value={m.id}>
+                            {m.nombre}
+                        </option>
+                    ))}
                 </select>
             </div>
 
