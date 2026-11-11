@@ -9,6 +9,7 @@ export default function AgregarProducto() {
     stock: "",
     marca_id: "",
     imagen_url: "",
+    descripcion: "",
   });
 
   const [marcas, setMarcas] = useState([]);
@@ -89,6 +90,7 @@ export default function AgregarProducto() {
         stock: Number(form.stock),
         marca_id: Number(form.marca_id),
         imagen_url: form.imagen_url.trim() || null,
+        descripcion: form.descripcion.trim() || null,
         activo: true,
       };
 
@@ -102,6 +104,7 @@ export default function AgregarProducto() {
         stock: "",
         marca_id: "",
         imagen_url: "",
+        descripcion: "",
       });
     } catch (err) {
       setErrors({ general: err.message || "Error al conectar con la API" });
@@ -246,6 +249,21 @@ export default function AgregarProducto() {
             value={form.imagen_url}
             onChange={handleChange}
             placeholder="https://ejemplo.com/zapatilla.jpg"
+            className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:border-black"
+          />
+        </div>
+
+        {/* Descripción */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            Descripción (opcional)
+          </label>
+          <input
+            type="text"
+            name="descripcion"
+            value={form.descripcion}
+            onChange={handleChange}
+            placeholder="Ej: Zapatilla deportiva de running con suela amortiguada"
             className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:border-black"
           />
         </div>
